@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login med bra hjälp</title>
+</head>
+
+<body>
+    <form action="http://localhost:8080/api/echo" method="post">
+        <fieldset>
+            <legend>Inloggningsinformation</legend>
+            <label>Användarnamn: <input type="text" name="user" placeholder=" Användarnamn"></label><br>
+            <label>Lösenord: <input type="password" name="password" placeholder="Lösenord"></label><br>
+            <input type="submit" value="Logga in">
+        </fieldset>
+
+        <fieldset>
+            <legend>Övrigt</legend>
+            <label>Annan data 1: <input type="text" name="data1"></label><br>
+            <label>Annan data 2: <input type="text" name="data2"></label><br>
+        </fieldset>
+
+    </form>
+</body>
+
+</html>
