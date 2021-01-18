@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mer selektorer 2</title>
+    <style>
+        li>em {
+            /* child selector */
+            color: blue;
+        }
+
+        p~div {
+            /* general sibling selector */
+            color: blue;
+        }
+
+        h1+p {
+            /* adjacent sibling selector */
+            font-weight: bold;
+        }
+
+        a:visited {
+            /* pseudo class selector */
+            color: fuchsia;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>Liten <em>text</em></li>
+        <li><span>Liten <em>text</em></span></li>
+    </ul>
+
+
+    <div>div 0</div>
+    
+    <p>paragraf</p>
+    
+    <div>div 1</div>
+    
+    <div>div 2</div>
+    
+    <div>div 3</div>
+
+    <p>paragraf</p>
+
+    <section>
+        <h1>Titel</h1>
+        <p>En liten ingress</p>
+        <p>Huvudtexten...</p>
+    </section>
+
+    <div>
+        <a href="https://wikipedia.org">wikipedia</a>
+        <a href="https://asdfghjkliuhji87tfbh.org">asdfghjkliuhji87tfbh.org</a>
+    </div>
+
+</body>
+
+</html>
