@@ -17,9 +17,19 @@
             padding-left: 10px;
         }
 
+        input[value="nisse"] {
+            color: green;
+            font-weight: 400;
+        }
+
         ul li em {
             color: green;
         }
+
+        #thebox .nisse em {
+            border: 1px solid red;
+        }
+
     </style>
 </head>
 
@@ -29,15 +39,23 @@
 
     <p>Lite <em>emfas</em> på texten.</p>
 
-
     <form>
         <input type="text" value="text"><br>
+        <input type="email" value="nisse@hult.com"><br>
+    </form>
+
+    <form>
+        <input type="text" value="nisse"><br>
         <input type="email" value="nisse@hult.com"><br>
     </form>
 
     <ul>
         <li>Text <em>eller?</em></li>
     </ul>
+
+    <ol>
+        <li>Text <em>eller?</em></li>
+    </ol>
 </body>
 
 </html>
