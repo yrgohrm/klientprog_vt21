@@ -10,12 +10,19 @@
 
       .nav li a {
           border: 1px solid black;
+          border-radius: 3px;
           margin-left: 1em;
           padding: 0.5em;
       }
 
       .nav li a:hover {
           background-color: grey;
+      }
+
+      .test {
+        display: inline;
+        border: 1px solid red;
+        height: 200px; /* funkar ej för inline */
       }
     </style>
   </head>
@@ -27,6 +34,9 @@
             <li><a href="#">Länk #3</a></li>
         </ul>
       </div>
+
+      <div class="test">hej</div>
+      <div class="test">då</div>
   </body>
 </html>
 
