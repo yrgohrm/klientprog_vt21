@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 6</title>
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/default.min.css"
+        integrity="sha384-s4RLYRjGGbVqKOyMGGwfxUTMOO6D7r2eom7hWZQ6BjK2Df4ZyfzLXEkonSm0KLIQ"
+        crossorigin="anonymous">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"
+        integrity="sha384-0H+01+wORQpYAMaLWyObzDlXZaG1Mgzrj0DsIDeQX762Cfo2fPEycKxVmhlDjSV4"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/languages/javascript.min.js"
+        integrity="sha384-yvgiRcMEEmuz44jMrpbWRfwQ/+n3foEGP+82+N4uXTxV2wWJxzJpm6RmzkX1M750"
+        crossorigin="anonymous"></script>
+
+    <script>hljs.initHighlightingOnLoad()</script>
+</head>
+
+<body>
+    <pre>
+        <code class="javascript">
+
+            // define variable aRandom. typing is dynamic
+            let aRandom = Math.random()
+
+            // print the value to the developer console
+            console.log(aRandom)
+            
+            // define constants with const
+            const myE = 2.71828
+            const myStringPI = "3.14159"
+
+            // ------------------------------------
+
+            let myBool = true,
+
+                // regular strings
+                myString1 = "some string",
+                myString2 = 'some other string',
+
+                // template literal (template string)
+                myString3 = `some ${myBool} string`,
+                myNum = 1.23456
+        
+            console.log(myBool + "\n" +
+                        myString1 + "\n" +
+                        myString2 + "\n" +
+                        myString3 + "\n" +
+                        myNum)
+
+            // ------------------------------------
+            
+            myBool = Boolean(myNum)    // true
+            myString1 = String(myBool) // "true"
+
+            console.log(myBool)
+            console.log(myString1)
+
+            // ------------------------------------
+
+            // using == is not so intuitive, use ===
+            // don't use !=, use !==
+
+            if ("" == 0) {
+                console.log("Knasigt")
+            }
+
+            if ("" !== 0) {
+                console.log("Ah, så bra!")
+            }
+
+            // ------------------------------------
+
+            console.log(typeof 33)
+            console.log(typeof "hejsan")
+            console.log(typeof true)
+            let x = "hej" + 1.22 + true
+            console.log(typeof x)
+            console.log(typeof console)
+
+            // ------------------------------------
+
+            const hello = "hej"
+            let userInput = prompt("Hallå!")
+            if (hello === userInput) {
+                console.log("Hej hej!")
+            }
+            else if ("123" === userInput) {
+                console.log("Trist.")
+            }
+            else {
+                console.log("Va?")
+            }
+
+            // ------------------------------------
+
+            let num = Number(prompt("Skriv ett nummer"))
+            switch (num) {
+                case 3:
+                    console.log("Hurra!")
+                    break
+                case 3.14:
+                    console.log("Nära")
+                    break
+                default:
+                    console.log("Nä du!")
+            }
+
+            // ------------------------------------
+
+            let str = prompt("Hej?")
+            switch (str) {
+                case "hej":
+                    console.log("Hallå!")
+                    break
+                default:
+                    console.log("Nähä")
+            }            
+
+            // ------------------------------------
+
+            let counter = 0;
+            while (counter < 3) {
+                console.log(`while counter: ${counter}`)
+                ++counter
+            }
+            
+            counter = 0;
+            do {
+                console.log(`do counter: ${counter}`)
+                ++counter
+            } while (counter < 3)
+
+            // ------------------------------------
+
+            for (let i = 0; i < 3; ++i) {
+                console.log(`i=${i}`)
+            }
+            
+            let arr = ["a", "b", "c"]
+            for (const prop in arr) {
+                console.log(`prop ${prop}, val ${arr[prop]}`);
+            }
+            
+            for (const val of arr) {
+                console.log(`val ${val}`);
+            }
+            
+            // ------------------------------------
+
+            try {
+                throw new Error("Evil error here")
+            }
+            catch (error) {
+                console.error("Oops:", error)
+            }
+            finally {
+                console.log("Nu är det slut")
+            }            
+
+            // ------------------------------------
+
+            let myArr = [1,2,3,4,5,6,7,8]
+
+            myArr.forEach(x => console.log(x+2))
+            
+            console.log(myArr.filter(x => x % 2 === 0))
+            
+            myArr.filter(x => x % 2 === 1)
+                 .map(x => "hej " + x)
+                 .forEach(x => console.log(x))
+
+            // ------------------------------------
+
+        </code>
+    </pre>
+</body>
+
+</html>
