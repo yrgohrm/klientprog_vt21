@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 6</title>
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/default.min.css"
+        integrity="sha384-s4RLYRjGGbVqKOyMGGwfxUTMOO6D7r2eom7hWZQ6BjK2Df4ZyfzLXEkonSm0KLIQ"
+        crossorigin="anonymous">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"
+        integrity="sha384-0H+01+wORQpYAMaLWyObzDlXZaG1Mgzrj0DsIDeQX762Cfo2fPEycKxVmhlDjSV4"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/languages/javascript.min.js"
+        integrity="sha384-yvgiRcMEEmuz44jMrpbWRfwQ/+n3foEGP+82+N4uXTxV2wWJxzJpm6RmzkX1M750"
+        crossorigin="anonymous"></script>
+
+    <script>hljs.initHighlightingOnLoad()</script>
+</head>
+
+<body>
+    <pre>
+        <code class="javascript">
+            let numbers = [1,2,3,4],
+                strings = ["hej", "på", "dig"]
+
+            let firstNumber = numbers[0]
+
+            console.log(firstNumber)
+
+            // ------------------------------------
+
+            // arrays in JavaScript do not need to be consecutive in their indexes
+            // but don't do this unless you really, really!, need it.
+
+            numbers.forEach(n => console.log("value before", n))
+            numbers[10] = 22
+            numbers.forEach(n => console.log("value after", n))
+            for (const index in numbers) { console.log("idx", index) }
+            console.log("length", numbers.length)
+            console.log("value with index 7", numbers[7]) 
+
+            // ------------------------------------
+
+            // push adds to end of the list
+            // pop removes from end of the list (and returns that value)
+
+            let list = []
+            list.push("hej")
+            list.push("världen")
+
+            console.log(list)
+            
+            let res = list.pop()
+            
+            console.log(res)
+            console.log(list)
+
+            // ------------------------------------
+
+            // with shift and unshift we can use lists as queues
+            // shift and unshift works on the start of the list
+
+            let list2 = ["hello", "world"]
+            list2.shift()
+            list2.unshift('new')
+            list2.unshift('brave')
+            console.log(list2)
+            
+            let queue = [0, 1, 2]
+            queue.push(3)
+            let nextItem = queue.shift()
+            console.log(nextItem)
+
+            // ------------------------------------
+
+            // we have access to all the nice functional methods too
+
+            let numbers2 = [1,2,3,4,5,6,7,8]
+
+            numbers2.forEach(x => console.log(x))
+            numbers2.map(x => x / 2)
+            numbers2.filter(x => x > 3)
+            numbers2.reduce((value, acc) => value * acc)
+
+            numbers2.map(x => x / 2)
+                .filter(x => x > 3)
+                .forEach(x => console.log(x))
+
+            // ------------------------------------
+
+            // regular function taking two parameters
+            function myFunction(x, y) {
+                return x * y;
+            }
+            
+            // also a regular function, but defined as a anonymous function
+            // and assigned a name with let.
+            let anotherFunction = function (x, y) {
+                return x * y;
+            }
+            
+            // two forms of lambda functions. Note the => isn't a ->
+
+            let lambdaFunction = (x, y) => x * y
+            
+            let lambdaFunction2 = (x, y) => {
+                return x * y
+            }
+            
+            console.log(myFunction(1, 2))
+            console.log(anotherFunction(1, 2))
+            console.log(lambdaFunction(1, 2))
+            console.log(lambdaFunction2(1, 2))
+
+            // ------------------------------------
+
+            function adjustPrices(prices) {
+                let priceIncrease = Number(
+            prompt('Hur många procents prisökning?'))
+                    percentChange = 1.0 + priceIncrease/100
+            
+                function increasePrice(item) {
+                    return item * percentChange
+                }
+            
+                return prices.map(increasePrice)
+            }
+            
+            // ------------------------------------
+
+            function myLittleCallback() {
+                console.log("it's for me the bell tolls")
+            }
+            
+            setInterval(myLittleCallback, 3000)
+            console.log("the script keeps running...")
+            console.log("... and running")
+
+            // ------------------------------------
+
+            const car = {
+                name: 'Lada Vesta',
+                year: 2019
+            }
+            
+            console.log(car.name)
+            console.log(car['name'])
+            car['year'] = 2020
+
+            // ------------------------------------
+
+            const car2 = {
+                name: 'Lada Vesta',
+                year: 2019,
+                printInfo: function () {
+                    console.log(this.name, this.year)
+                }
+            }
+            car2.printInfo()
+            
+            // ------------------------------------
+
+            const othercar = {
+                name: { make: 'Lada',
+                        model: 'Vesta' },
+                year: 2019,
+                printInfo: function () {
+                    console.log(this.name.make, 
+                                this.name.model, 
+                                this.year)
+                }
+            }
+            othercar.printInfo()
+            
+            // ------------------------------------
+
+            function createCar(name, year) {
+                const car = {}
+                car.name = name;
+                car.year = year;
+                car.printInfo = function () {
+                    console.log(this.name, this.year)
+                }
+                return car;
+            }
+
+            let vestaCar = createCar('Lada Vesta', 2020)
+            vestaCar.printInfo()          
+
+            // ------------------------------------
+
+            function Car(name, year) {
+                this.name = name;
+                this.year = year;
+                this.printInfo = function () {
+                    console.log(this.name, this.year)
+                }
+            }
+
+            let car3 = new Car('Lada Vesta', 2020)
+            car3.printInfo()
+
+            // ------------------------------------
+
+            let vesta2 = new Car('Lada Vesta', 2019)
+            let bronto2 = new Car('Lada Bronto', 2020)
+
+            vesta2.printInfo()
+            bronto2.printInfo()
+
+            // ------------------------------------
+
+            function Car(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+            
+            Car.prototype.printInfo = function () {
+                console.log(this.name, this.year)
+            }          
+
+            function RegisteredCar(name, year, number) {
+                Car.call(this, name, year)
+                this.number = number;
+            }
+            
+            RegisteredCar.prototype = Object.create(Car.prototype)
+            RegisteredCar.prototype.constructor = RegisteredCar
+            
+            RegisteredCar.prototype.printInfo =  function () {
+                console.log(this.name, this.year, this.number)
+            }        
+
+            let regcar = new RegisteredCar('Lada Vesta', 
+                                           2020, 
+                                           'MYP997')
+            regcar.printInfo()
+
+            // ------------------------------------
+
+            let arr = [1,2,3,4]
+            Array.prototype.funky = function () {
+                this.forEach(y => console.log(y))
+            }
+            arr.funky()
+
+            // ------------------------------------
+
+            class Car {
+                constructor(name, year) {
+                    this.name = name;
+                    this.year = year;
+                }
+            
+                printInfo() {
+                    console.log(this.name, this.year)
+                }
+            }
+            
+            let car = new Car('Lada Vesta', 2020)
+            car.printInfo()
+           
+            // ------------------------------------
+
+            class OwnedCar extends Car {
+                constructor(name, year, owner) {
+                    super(name, year)
+                    this.owner = owner
+                }
+            
+                printInfo() {
+                    super.printInfo()
+                    console.log(`Current owner: ${this.owner}`)
+                }
+            }
+            
+            let mycar = new OwnedCar('Ford S-Max', 2018, 'Hampus')
+            mycar.owner = 'Stina'
+            mycar.printInfo()           
+
+            // ------------------------------------
+
+            class CarOwner {
+                constructor(name) {
+                    this._names = [name]
+                }
+            
+                set name(n) {
+                    this._names.push(n)
+                }
+            
+                get name() {
+                    return this._names[this._names.length-1]
+                }
+            }
+
+            // ------------------------------------
+
+        </code>
+    </pre>
+</body>
+
+</html>
