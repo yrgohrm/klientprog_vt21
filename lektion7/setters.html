@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setters and getters</title>
+
+    <script>
+
+        class Person {
+            constructor(name, age) {
+                this._name = name
+                this.age = age
+            }
+
+            set name(n) {
+                if (n.length < 2) {
+                    throw new Error("för kort namn")
+                }
+
+                this._name = n   
+            }
+
+            get name() {
+                return this._name
+            }
+
+            printInfo() {
+                console.log(this.name, this.age)
+            }
+        }
+
+        let p1 = new Person("Hampus", 39)
+        p1.name = "Hampus Ram"
+        p1.printInfo()
+
+        // don't!!!
+        console.log("underscore", p1._name)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

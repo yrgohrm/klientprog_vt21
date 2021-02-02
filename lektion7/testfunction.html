@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+
+    <script>
+
+        function printAndReturnDouble(anumber) {
+            console.log(anumber)
+            return anumber * 2
+        }
+
+        function justPrintIt(someval) {
+            console.log("someval", someval)
+        }
+
+        let double = printAndReturnDouble(22)
+        console.log("double", double)
+
+        justPrintIt("hejsan")
+
+        let printItAgain = function (value) {
+            console.log("again", value)
+        }
+
+        if (Math.random() > 0.5) {
+            printItAgain = justPrintIt
+        }
+
+        printItAgain("hello world")
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
