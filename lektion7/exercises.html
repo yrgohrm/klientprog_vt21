@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function sumOfList(list) {
+            /*
+                Java
+
+                int sumOfList(List<Integer> list) {
+                    int sum = 0;
+                    for (Integer i : list) {
+                        sum += i;
+                    }
+                    return sum;
+                }
+
+            */
+
+            let sum = 0
+            for (const val of list) {
+                sum += val
+            }
+            return sum
+        }
+
+        console.log(sumOfList([1, 4, 5, 99]))
+
+        function sumOfList2(list) {
+
+            // [1, 4, 6, 8]
+            // v1 = 1, v2 = 4
+            // v1 = 5, v2 = 6
+            // v1 = 11, v2 = 8
+
+            return list.reduce((acc, nextInList) => acc + nextInList)
+        }
+
+        console.log("ver2", sumOfList2([1, 4, 5, 99]))
+
+        function sumOfList3(list) {
+            let sum = 0
+            list.forEach(val => {
+                sum += val
+            })
+            return sum
+        }
+
+        console.log("ver3", sumOfList3([1, 4, 5, 99]))
+
+        let numList = [1,2,3,4,5]
+        let strList = numList.map(x => String(x))
+
+        console.log("string list", strList)
+
+        // not as good
+        let strList2 = []
+        numList.forEach(x => strList2.push(String(x)))
+
+        console.log("string list 2", strList2)
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

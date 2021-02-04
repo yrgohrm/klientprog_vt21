@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="content">
+        <p>old stuff</p>
+    </div>
+
+    <script>
+
+        let content = document.getElementById("content")
+
+        for (let i = 0; i < 10; ++i) {
+            let p = document.createElement('p')
+            p.appendChild(document.createTextNode("para " + i))
+            content.appendChild(p)
+        }
+
+        let p = document.createElement('p')
+        
+        p.innerHTML = `<strong>hejsan</strong>
+                       <em>hoppsan</em>
+                       <strong>
+                         <em>!!!</em>
+                       </strong>`
+
+        content.appendChild(p)
+
+
+    </script>
+</body>
+</html>
