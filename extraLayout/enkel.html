@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        .outer {
+            display: flex;
+            width: 100%;
+            height: 200px;
+        }
+
+        .sidebar {
+            flex-grow: 1;
+        }
+
+        .maincontent {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            flex-grow: 6;
+            gap: 0.5em;
+            padding: 2em;
+        }
+
+        .maincontent > div {
+            border: 1px solid grey;
+            border-radius: 5px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .flex > div:first-child {
+            background-color: turquoise;
+        }
+
+        .flex > div {
+            background-color: blueviolet;
+            flex-grow: 1;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="outer">
+
+        <div class="sidebar">xxx</div>
+
+        <div class="maincontent">
+
+            <div class="flex">
+                <div>x</div>
+                <div>x</div>
+                <div>x</div>
+            </div>
+
+            <div>b</div>
+            <div>c</div>
+            <div>d</div>
+            <div>e</div>
+            <div>f</div>
+
+        </div>
+        
+        <div class="sidebar">zzz</div>
+
+    </div>
+
+
+</body>
+</html>

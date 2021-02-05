@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            display: grid;
+            gap: 0.5em;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+        }    
+
+        .header {
+            background-color: antiquewhite;
+            grid-row: 1;
+            grid-column: 1/5;
+        }
+
+        .footer {
+            background-color: aquamarine;
+            grid-row: 3;
+            grid-column: 1/5;
+        }
+
+        .main {
+            grid-row: 2;
+            grid-column: 2/4;
+        }
+
+        .ml-1 {
+            margin-left: 1rem;
+        }
+
+        .mr-1 {
+            margin-right: 1rem;
+        }
+
+        @media screen and (max-width: 900px) {
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="header">asas</div>
+    
+    <div class="main">
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quod velit, numquam, repellendus quam recusandae earum sint facere, soluta eveniet a vero dolores quae expedita harum natus! Neque iusto obcaecati explicabo, animi exercitationem, illo voluptatum dolore ad harum expedita unde corrupti, excepturi velit delectus commodi. Quam ea tempora velit fugit!
+
+    </div>
+
+    <div class="ml-1">
+
+        header text
+
+    </div>
+
+    <div class="mr-1">
+
+        footer text
+
+    </div>
+    
+    <div class="footer">
+
+        Besök gärna även <a href="enkel.html">den enkla sidan!</a><br>
+        Inte så bra länk till <a href="/enkel.html">den enkla sidan!</a><br>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+
+
+
+Om vi är på sidan:
+
+https://sv.wikipedia.org/wiki/docs/Jane_Grey
+
+om vi i det dokumentet har länken:
+
+apa.html       då pekar den på    https://sv.wikipedia.org/wiki/docs/apa.html
+
+/apa.html      då pekar den på    https://sv.wikipedia.org/apa.html
+
+../apa.html    då pekar den på    https://sv.wikipedia.org/wiki/apa.html
+
+
+https://apan.com/nisse/hult.html    då pekar den på    https://apan.com/nisse/hult.html
+
+http://127.0.0.1:5500/hult.html     då pekar den på    http://127.0.0.1:5500/hult.html
