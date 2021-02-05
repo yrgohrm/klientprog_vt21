@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+            margin: 0.5em 0.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <label>
+            Lösenord:
+            <input type="password" v-model="password">
+        </label>
+
+        <label>
+            Land: 
+            <select v-model="country">
+                <option value="sweden">Sverige</option>
+                <option value="norway">Norge</option>
+                <option value="denmark">Danmark</option>
+            </select>
+        </label>
+
+        <label>
+            <input type="checkbox" v-model="checkboxes" value="bosse">
+            Bosse
+        </label>
+        
+        <label>
+            <input type="checkbox" v-model="checkboxes" value="lena">
+            Lena
+        </label>
+
+
+        <label>
+            <input type="radio" v-model="radios" value="bosse">
+            Bosse
+        </label>
+        
+        <label>
+            <input type="radio" v-model="radios" value="lena">
+            Lena
+        </label>
+
+        <p>Value of password: {{password}}</p>
+        <p>Value of select: {{country}}</p>
+        <p>Value of checkboxes: {{checkboxes}}</p>
+        <p>Value of radios: {{radios}}</p>
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    password: 'iamgod',
+                    country: 'sweden',
+                    checkboxes: ['lena'],
+                    radios: 'bosse',
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>

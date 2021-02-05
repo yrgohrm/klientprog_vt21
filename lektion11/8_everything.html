@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fullwidth {
+            width: 100%;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin: 0.5em 0.1em;
+        }
+
+        #app {
+            border: 5px solid aquamarine;
+            min-width: 30%;
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- We can have as much HTML as we want outside of the #app div.
+         But it is only inside of the #app div that we can use Vue.js
+         stuff to make interactive things. -->
+
+    <h1>Världens bästa applikation!</h1>
+
+    <div class="fullwidth center">
+        <div id="app">
+
+            <label>
+                <input type="checkbox" v-model="showStuff" :title="'Kommer att visa ' + count + ' saker'">
+                Visa grejerna
+            </label>
+
+            <div v-if="showStuff">
+                <label>
+                    Antal att visa: 
+                    <select v-model="count">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>5</option>
+                    </select>
+                </label>
+
+                <p v-for="index in Number(count)">
+                    Paragraf nummer {{index}}.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    showStuff: false,
+                    count: 1,
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+</body>
+
+</html>
