@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function reverseTextOnEvent(evt) {
+            let text = evt.target.innerText
+            evt.target.innerText = text.split("").reverse().join("")
+        }
+
+        function setup() {
+            const allPElements = document.getElementsByTagName('p')
+            for (const p of allPElements) {
+                p.addEventListener('mouseenter', reverseTextOnEvent)
+                p.addEventListener('mouseleave', reverseTextOnEvent)
+            }
+        }
+
+        window.addEventListener('load', setup)
+
+    </script>
+</head>
+<body>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, non?</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+</body>
+</html>

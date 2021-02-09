@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent default</title>
+
+    <style>
+        #contextMenu {
+            background-color: lightgrey;
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+            width: 15em;
+        }
+
+        #contextMenu ul {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        #contextMenu li {
+            list-style: none;
+        }
+
+        #contextMenu li:hover {
+            background-color: blanchedalmond;
+        }
+    </style>
+
+    <script>
+
+        function showContextMenu(evt) {
+            evt.preventDefault()
+
+            const menu = document.getElementById("contextMenu")
+            menu.style.display = "block"
+            menu.style.left = evt.x + "px"
+            menu.style.top = evt.y + "px"
+        }
+
+        function closeContextMenu() {
+            const menu = document.getElementById("contextMenu")
+            menu.style.display = "none"
+        }
+
+        function setUpContextMenu() {
+            const firstDiv = document.body.children[0]
+            firstDiv.addEventListener('contextmenu', showContextMenu)
+
+            const menu = document.getElementById("contextMenu")
+            menu.addEventListener('click', closeContextMenu)
+        }
+
+        window.addEventListener('load', setUpContextMenu)
+
+    </script>
+</head>
+<body>
+    <div style="width: 100vw; height: 100vh;">
+    </div>
+
+    <div id="contextMenu" style="display: none; position: absolute;">
+        <ul>
+            <li>Gör något</li>
+            <li>Annan sak</li>
+            <li>Avsluta</li>
+        </ul>
+    </div>
+</body>
+</html>

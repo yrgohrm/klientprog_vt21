@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function toggleNewsletterInput(evt) {
+            const newsletteremail = document.getElementById("newsletteremail")
+            newsletteremail.style.display = evt.target.checked ? "inline" : "none"
+        }
+
+        window.addEventListener('load', () => {
+            let checkbox = document.getElementById("wantnewsletter")
+            checkbox.addEventListener('input', toggleNewsletterInput)
+        })
+
+    </script>
+</head>
+<body>
+    
+    <form action="">
+
+        <label>
+            <input type="checkbox" id="wantnewsletter"> Jag vill ha nyhetsbrev
+        </label>
+
+        <br>
+
+        <label style="display: none" id="newsletteremail">
+            E-postadress: <input type="email" name="email" placeholder="user@host.com">
+        </label>
+
+    </form>
+
+</body>
+</html>
