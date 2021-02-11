@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modifierare</title>
+
+    <style>
+        body {
+            margin: 2em;
+        }
+
+        #app > div {
+            border: 2px solid red;
+            margin: 0.5em;
+            padding: 4em;
+        }
+
+        #app > div > pre {
+            border: 2px solid blue;
+            padding: 4em;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <form @submit.prevent="handleSubmit">
+            <input type="submit">
+        </form>
+
+        <div ref="pos">0 0</div>
+
+        <div @mousemove.self="updatePosition">
+            <pre ref="inner"></pre>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    count: 1
+                }
+            },
+            methods: {
+                handleSubmit() {
+                    this.$refs.inner.append("submitted\n")
+                },
+                updatePosition(evt) {
+                    this.$refs.pos.innerText = `${evt.x} ${evt.y}`
+                },
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+
+</html>

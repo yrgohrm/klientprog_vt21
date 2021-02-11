@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app">
+        <article-comp :articles="headings">
+        </article-comp>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+
+        const localArtComp = {
+            props: ["title"],
+            template: `<article>
+                        <h1>{{title}}</h1>
+                        <p><slot></slot></p>
+                       </article>`
+        }
+
+        const artComp = {
+            components: { 
+                localArtComp 
+            },
+            props: {
+                articles: Array
+            },
+            template: `<div style="border: 1px solid black;">
+                         Alla artiklar:
+                         <local-art-comp v-for="art in articles" :title="art">
+                            {{art}}
+                         </local-art-comp>
+                       </div>`
+        }
+
+
+        const app = {
+            data() {
+                return {
+                    headings: ["Artikel 1", "Art 2", "Art 3"]
+                }
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('article-comp', artComp)
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>

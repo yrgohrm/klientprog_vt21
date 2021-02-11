@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+</head>
+
+<body>
+    <div id="app">
+        <article-comp title="Min fina artikel">
+            Här kommer den rafflande texten om <em>massa</em> spännande saker.
+        </article-comp>
+
+        <article-comp title="Listan över de bästa katterna">
+            Vilken katt är egentligen bäst? Svaret är att ingen katt är bäst, hundar är bäst.
+        </article-comp>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+        }
+
+        const vueApp = Vue.createApp(app)
+
+        vueApp.component('article-comp', {
+            props: {
+                title: String
+            },
+            template: `<article>
+                            <h1>{{title}}</h1>
+                            <p>
+                                <slot>Saknar artikeltext</slot>
+                            </p>
+                        </article>`
+        })
+
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>
