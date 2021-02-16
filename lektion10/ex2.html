@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function onLoad() {
+            if (this.status < 400) {
+                console.log("response:", this.response)
+            }
+            else {
+                console.error("Something went wrong.")
+            }
+        }
+
+        const xhr = new XMLHttpRequest()
+        xhr.responseType = "json"
+        xhr.addEventListener("load", onLoad)
+        xhr.open("GET", '/api/echo?data={"apa":22}')
+        xhr.send()
+
+    </script>
+</body>
+
+</html>

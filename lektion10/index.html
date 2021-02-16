@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // let myPromise = new Promise((resolve, reject) => {
+        //     setTimeout(() => resolve('hej'), 2000)
+        // })
+
+        // myPromise.then(res => { 
+        //     console.log("promise done: ", res)
+        //     return 'då'
+        // }).then(res => console.log("promise två:", res))
+        // .catch(() => console.log("error"))
+
+        // async function myPromise() {
+        //     return 'hej'
+        // }
+
+        // function myPromise1() {
+        //     return new Promise((resolv, reject) => {
+        //         resolve('hej')
+        //     })
+        // }
+
+        // async function handlePromise() {
+        //     try {
+        //         let res1 = await myPromise()
+        //         console.log("promise done", res1)
+        //     }
+        //     catch (err) {
+        //         console.log("error")
+        //     }
+        // }
+
+        // handlePromise().then(() => console.log("hahahaha"))
+
+
+        async function func1() {
+            return 1;
+        }
+
+        async function func2() {
+            return 2;
+        }
+
+        // sämre versionen
+        // async function func3() {
+        //     let a = await func1()
+        //     let b = await func2()
+        //     return a + b
+        // }
+
+        // bättre versionen
+        async function func3() {
+            let a = func1()
+            let b = func2()
+            return (await a) + (await b)
+        }
+
+        func3().then(res => console.log(res))
+        console.log("apan")
+
+    </script>
+</body>
+</html>

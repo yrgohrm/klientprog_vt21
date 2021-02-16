@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function onLoad() {
+            console.log("response:", this.response)
+        }
+
+        const xhr = new XMLHttpRequest()
+        xhr.responseType = "json"
+        xhr.addEventListener("load", onLoad)
+        xhr.open("GET", '/api/echo?data={"apa":22}')
+        xhr.send()
+
+
+        function onPostLoad() {
+            console.log("post response:", this.response)
+        }
+
+        const xhrPost = new XMLHttpRequest()
+        xhrPost.responseType = "json"
+        xhrPost.addEventListener("load", onPostLoad)
+        xhrPost.open("POST", '/api/echo')
+        xhrPost.send('{"apa":99}')
+
+    </script>
+</body>
+
+</html>
