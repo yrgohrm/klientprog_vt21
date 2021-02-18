@@ -9,8 +9,11 @@
 
 <body>
     <div id="app">
-        <p v-for="ptext in paragraphs">
+        <div v-for="ptext in paragraphs">
             {{ ptext }}
+        </div>
+        <p v-for="num in 10">
+            {{num}}
         </p>
     </div>
 
@@ -25,6 +28,9 @@
                                     "Paragraph two",
                                     "Paragraph THREE"]
                 }
+            },
+            mounted() {
+                setInterval(() => this.paragraphs.push("en till"), 2000)
             }
         }
 

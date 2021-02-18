@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script defer src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script defer src="8_everything.js"></script>
+
     <style>
         .fullwidth {
             width: 100%;
@@ -35,7 +41,7 @@
          But it is only inside of the #app div that we can use Vue.js
          stuff to make interactive things. -->
 
-         
+
     <div class="fullwidth center">
         <h1>Världens bästa applikation!</h1>
         <div id="app">
@@ -47,7 +53,7 @@
 
             <div v-if="showStuff">
                 <label>
-                    Antal att visa: 
+                    Antal att visa:
                     <select v-model="count">
                         <option>1</option>
                         <option>2</option>
@@ -60,25 +66,9 @@
                     Paragraf nummer {{index}}.
                 </p>
             </div>
-            
+
         </div>
     </div>
-
-    <script src="https://unpkg.com/vue@3.0.5"
-        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
-        crossorigin="anonymous"></script>
-    <script>
-        const app = {
-            data() {
-                return {
-                    showStuff: false,
-                    count: 1,
-                }
-            }
-        }
-
-        Vue.createApp(app).mount("#app")
-    </script>
 </body>
 
 </html>

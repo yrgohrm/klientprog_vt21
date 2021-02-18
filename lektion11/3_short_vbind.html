@@ -25,6 +25,9 @@
                     title: 'The Element Title',
                     submitText: 'Send it!'
                 }
+            },
+            mounted() {
+                setInterval(() => this.submitText = this.submitText + "!", 2000)
             }
         }
 
