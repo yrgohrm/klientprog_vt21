@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Övning 5</title>
+    <script defer src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script defer src="exc6.js"></script>
+    <style>
+
+        .person {
+            width: 40%;
+            border: 1px solid red;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="litext in paragraphs">{{ litext }}</li>
+        </ul>
+
+        <div v-for="person in people" class="person">
+            <h1>{{person.name}}</h1>
+            <span>Job: {{person.job}}</span>
+            <p>
+                {{person.description}}
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

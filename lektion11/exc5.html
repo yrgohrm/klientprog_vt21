@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Övning 5</title>
+    <script defer src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script defer src="exc5.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="showHeading">
+        <h1 v-if="showHeading">En bra heading!</h1>
+
+        <p v-if="showHeading">
+            En liten text här.
+        </p>
+        <p v-else>
+            En annan liten text här.
+        </p>
+    </div>
+</body>
+
+</html>
