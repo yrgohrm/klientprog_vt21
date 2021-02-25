@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lifecycle</title>
+</head>
+
+<body>
+
+    <div id="app">
+        {{ count }}
+        <div ref="messages"></div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    count: 1
+                }
+            },
+            mounted() {
+                // in mounted we can do setup related to the DOM
+                this.$refs.messages.append('hejsan världen')
+            },
+            created() {
+                // in created we can assign values to our
+                // data variables, for instance from a web service
+                this.count = 2;
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+
+</html>
