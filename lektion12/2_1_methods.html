@@ -12,7 +12,9 @@
 
     <div id="app">
         {{ count }}<br>
+        {{ othercount }}<br>
         <input type="button" value="Incr" @click="incr">
+        <input type="button" value="Decr" @click="decr">
     </div>
 
     <script src="https://unpkg.com/vue@3.0.5"
@@ -22,12 +24,17 @@
         const app = {
             data() {
                 return {
-                    count: 1
+                    count: 1,
+                    othercount: 100
                 }
             },
             methods: {
                 incr() {
                     this.count++
+                    this.othercount += 10
+                },
+                decr() {
+                    this.count--
                 }
             }
         }
