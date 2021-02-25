@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>excercise</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="button" value="Add random" @click="addRandom">
+
+        <ul>
+            <li v-for="num in numbers" style="display: flex;">
+                <div v-for="x in Number(num)" style="width: 10px; height: 10px; margin: 1px; background-color:aqua;"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        const app = {
+            data() {
+                return {
+                    numbers: []
+                }
+            },
+            methods: {
+                addRandom() {
+                    let randomNumber = Math.floor(Math.random() * 10) + 1
+                    this.numbers.push(randomNumber)
+                }
+            }
+        }
+
+        Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+
+</html>
