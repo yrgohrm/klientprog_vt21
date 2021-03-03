@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple state with vuex</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="text">
+        <div>{{text}}</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vuex@4.0.0"
+        integrity="sha384-kyee6BrPEnlefRkepwMRF1Mf7h+8pxnolcmyvNq0now4MDG+sfhu32kmfca6Uprk"
+        crossorigin="anonymous"></script>
+    <script>
+        const store = Vuex.createStore({
+            state() {
+                return {
+                    text: ''
+                }
+            },
+            mutations: {
+                updateText(state, text) {
+                    if (text != null) {
+                        state.text = text
+                    }
+                }
+            }
+        })
+
+        const app = {
+            computed: {
+                text: {
+                    get() {
+                        return this.$store.state.text
+                    },
+                    set(text) {
+                        this.$store.commit('updateText', text)
+                    }
+                }
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+            .use(store)
+            .mount("#app")
+    </script>
+</body>
+
+</html>
