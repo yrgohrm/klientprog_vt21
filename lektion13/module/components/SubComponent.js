@@ -1,6 +1,7 @@
 import TestService from "../services/TestService.js"
 
 export default {
+  name: "SubComponent",
   data() {
     return {
       num: 0,

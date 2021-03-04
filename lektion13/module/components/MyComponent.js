@@ -2,6 +2,7 @@ import TestService from "../services/TestService.js"
 import SubComponent from "./SubComponent.js"
 
 export default {
+  name: "MyComponent",
   // here we declare all local components, this is preferred to global
   // components most of the time unless it is a very general and widely
   // used component (such as a button)
