@@ -17,6 +17,8 @@
         <article-comp title="Listan över de bästa katterna">
             Vilken katt är egentligen bäst? Svaret är att ingen katt är bäst, hundar är bäst.
         </article-comp>
+
+        <article-comp title="Denna är tom"></article-comp>
     </div>
 
 
@@ -36,7 +38,7 @@
             template: `<article>
                             <h1>{{title}}</h1>
                             <p>
-                                <slot>Saknar artikeltext</slot>
+                                <slot>Saknar en fin <em>artikeltext</em></slot>
                             </p>
                         </article>`
         })

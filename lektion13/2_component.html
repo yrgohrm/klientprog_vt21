@@ -12,6 +12,9 @@
     <div id="app">
         <list-component></list-component>
         <list-component></list-component>
+        <list-component></list-component>
+        <list-component></list-component>
+        <list-component></list-component>
     </div>
 
     <script src="https://unpkg.com/vue@3.0.5"
@@ -22,7 +25,8 @@
 
         const vueApp = Vue.createApp(app)
 
-        vueApp.component('list-component', {
+        const listComponent = {
+            name: "ListComponent",
             data() {
                 return {
                     list: []
@@ -40,7 +44,9 @@
                                 <li v-for="item in list">{{item}}</li>
                             </ul>
                         </div>`
-        })
+        }
+
+        vueApp.component('list-component', listComponent)
 
         vueApp.mount("#app")
     </script>

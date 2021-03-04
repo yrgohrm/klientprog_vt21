@@ -10,8 +10,8 @@
 
 <body>
     <div id="app">
-        <list-component button-text="Click"></list-component>
-        <list-component button-text="Add"></list-component>
+        <list-component button-text="Click" heading="Comp 1"></list-component>
+        <list-component button-text="Add" heading="Comp Two"></list-component>
     </div>
 
     <script src="https://unpkg.com/vue@3.0.5"
@@ -23,7 +23,7 @@
         const vueApp = Vue.createApp(app)
 
         vueApp.component('list-component', {
-            props: ["buttonText"],
+            props: ["buttonText", "heading"],
             data() {
                 return {
                     list: []
@@ -36,6 +36,7 @@
                 }
             },
             template: `<div>
+                            <h1>{{heading}}</h1>
                             <input type="button" :value="buttonText" @click="addItem">
                             <ul>
                                 <li v-for="item in list">{{item}}</li>

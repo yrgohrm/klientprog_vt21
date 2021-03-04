@@ -28,9 +28,9 @@
                        </article>`
         }
 
-        const artComp = {
+        const articleComp = {
             components: { 
-                localArtComp 
+                localArtComp
             },
             props: {
                 articles: Array
@@ -45,6 +45,9 @@
 
 
         const app = {
+            components: {
+                articleComp
+            },
             data() {
                 return {
                     headings: ["Artikel 1", "Art 2", "Art 3"]
@@ -54,7 +57,7 @@
 
         const vueApp = Vue.createApp(app)
 
-        vueApp.component('article-comp', artComp)
+//        vueApp.component('article-comp', articleComp)
 
         vueApp.mount("#app")
     </script>
