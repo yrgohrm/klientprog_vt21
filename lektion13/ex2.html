@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <adder></adder>
+        <adder></adder>
+        <adder></adder>
+        <adder></adder>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        
+        const adder = {
+            name: "Adder",
+            data() {
+                return {
+                    value1: "",
+                    value2: "",
+                    result: ""
+                }
+            },
+            methods: {
+                addValues() {
+                    let res = Number(this.value1) + Number(this.value2)
+                    if (Number.isNaN(res)) {
+                        this.result = ""
+                    }
+                    else {
+                        this.result = res
+                    }
+                }
+            },
+            template: `<div>
+                          <input type="text" size="3" v-model="value1">
+                          <input type="button" value="+" @click="addValues">
+                          <input type="text" size="3" v-model="value2">
+                          = {{result}}
+                       </div>`
+        }
+        
+        const app = {
+            components: {
+                adder
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+        
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>

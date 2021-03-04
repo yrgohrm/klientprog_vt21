@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <label-input name="bosse" label="Viktig Bosse-data"></label-input>
+        <label-input name="nisse" label="Viktig Nisse-data"></label-input>
+        <label-input name="lena" label="Viktig Lena-data"></label-input>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script>
+        
+        const labelInput = {
+            name: "LabelInput",
+            props: ["label", "name"],
+            template: `<label>{{label}} <input type="text" :name="name"></label>`
+        }
+        
+        const app = {
+            components: {
+                labelInput
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+        
+        // vueApp.component("label-input", labelInput)
+        
+        vueApp.mount("#app")
+    </script>
+
+</body>
+
+</html>
