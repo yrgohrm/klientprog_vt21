@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Joke App</title>
+    <style>
+        #app {
+            display: flex;
+        }
+
+        .joke {
+            padding: 0.5em;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .joke > div {
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Amazing Joke App</h1>
+    <div id="app">
+        <joke-list class="joke"></joke-list>
+
+        <favorite-jokes class="joke"></favorite-jokes>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"
+        integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vuex@4.0.0"
+        integrity="sha384-kyee6BrPEnlefRkepwMRF1Mf7h+8pxnolcmyvNq0now4MDG+sfhu32kmfca6Uprk"
+        crossorigin="anonymous"></script>
+    <script>
+
+        const store = Vuex.createStore({
+            state: {
+                jokes: [],
+                favjokes: {},
+            },
+            mutations: {
+                add(state, joke) {
+                    joke.favorite = state.favjokes[joke.id] != null
+                    state.jokes.push(joke)
+                },
+                trim(state) {
+                    state.jokes = state.jokes.slice(-3)
+                },
+                makeFavorite(state, id) {
+                    let jokeObject = state.jokes.find(jo => jo.id === id)
+                    jokeObject.favorite = true
+                    state.favjokes[id] = jokeObject
+                },
+                removeFavorite(state, id) {
+                    let jokeObject = state.favjokes[id]
+                    if (jokeObject != null) {
+                        jokeObject.favorite = false
+                        delete state.favjokes[id]
+                    }
+                }
+            },
+            actions: {
+                async getJoke({ commit }) {
+                    let resp = await fetch('https://icanhazdadjoke.com/',
+                        { headers: { 'Accept': 'application/json' } })
+                    if (resp.ok) {
+                        let json = await resp.json()
+                        commit('add', { id: json.id, joke: json.joke })
+                    }
+                },
+                updateJokes({ dispatch, commit }) {
+                    // get a joke and then trim the list of jokes
+                    dispatch('getJoke').then(() => commit('trim'))
+                },
+                toggleFavorite({ state, commit }, id) {
+                    if (state.favjokes[id] == null) {
+                        commit('makeFavorite', id)
+                    }
+                    else {
+                        commit('removeFavorite', id)
+                    }
+                }
+            }
+        })
+
+        const heart = {
+            name: "heart",
+            props: {
+                active: {
+                    type: Boolean,
+                    default: false
+                }
+            },
+            template: `<span>
+                        <template v-if="active">❤️</template>
+                        <template v-else>🖤</template>
+                       </span>`
+        }
+
+        const favoriteJokes = {
+            components: {
+                heart
+            },
+            computed: {
+                jokes() {
+                    return this.$store.state.favjokes
+                }
+            },
+            methods: {
+                ...Vuex.mapActions(['toggleFavorite'])
+            },
+            template: `<div>
+                            <div v-for="joke in jokes">
+                                <heart :active="joke.favorite" @click="toggleFavorite(joke.id)"></heart>
+                                {{joke.joke}}
+                            </div>
+                        </div>`
+        }
+
+        const jokeList = {
+            components: {
+                heart
+            },
+            computed: {
+                jokes() {
+                    return this.$store.state.jokes
+                }
+            },
+            methods: {
+                ...Vuex.mapActions(['updateJokes',
+                                    'toggleFavorite'])
+            },
+            template: `<div>
+                            <input type="button" value="Get another joke" @click="updateJokes">
+                            <div v-for="joke in jokes">
+                                <heart :active="joke.favorite" @click="toggleFavorite(joke.id)"></heart>
+                                {{joke.joke}}
+                            </div>
+                        </div>`
+        }
+
+        const app = {
+            components: {
+                favoriteJokes,
+                jokeList
+            },
+            methods: {
+                ...Vuex.mapActions(['updateJokes',
+                                    'toggleFavorite'])
+            }
+        }
+
+        const vueApp = Vue.createApp(app)
+        vueApp.use(store)
+        vueApp.mount("#app")
+    </script>
+</body>
+
+</html>
