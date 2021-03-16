@@ -1,0 +1,47 @@
+{
+  "inputs": {
+    "style.css": {
+      "bytes": 135,
+      "imports": []
+    },
+    "_snowpack/pkg/lodash.js": {
+      "bytes": 544298,
+      "imports": []
+    },
+    "app.js": {
+      "bytes": 188,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/lodash.js",
+          "kind": "import-statement"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "../~~bundle~~/style.css": {
+      "imports": [],
+      "entryPoint": "style.css",
+      "inputs": {
+        "style.css": {
+          "bytesInOutput": 72
+        }
+      },
+      "bytes": 73
+    },
+    "../~~bundle~~/app.js": {
+      "imports": [],
+      "exports": [],
+      "entryPoint": "app.js",
+      "inputs": {
+        "_snowpack/pkg/lodash.js": {
+          "bytesInOutput": 72723
+        },
+        "app.js": {
+          "bytesInOutput": 123
+        }
+      },
+      "bytes": 72847
+    }
+  }
+}

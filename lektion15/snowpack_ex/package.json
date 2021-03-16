@@ -1,0 +1,29 @@
+{
+  "name": "snowpack_ex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "snowpack": "^3.0.13"
+  },
+  "snowpack": {
+    "mount": {
+      "src": "/"
+    },
+    "optimize": {
+      "bundle": true,
+      "minify": true,
+      "treeshake": true
+    }
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
