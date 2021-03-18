@@ -35,9 +35,18 @@
         const Product = {
             props: ['productId'],
             template: '<p>{{productId}}</p>',
+            created() {
+                console.log("created")
+            },
+            mounted() {
+                console.log("mounted")
+            },
             watch: {
                 $route(to, from) {
-                    console.log(this.productId)
+                    console.log("route changed: ", this.productId)
+                },
+                productId() {
+                    console.log("props change")
                 }
             }
 

@@ -20,7 +20,11 @@
             <router-link to="/product/someproduct/info">Info</router-link>
             <router-link to="/product/someproduct/accessories">Access</router-link>
         </nav>
-        <router-view></router-view>
+
+        <div style="width: 50%; background-color: grey; border: 1px solid purple;">
+            <router-view></router-view>
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/vue@3.0.5"
@@ -37,16 +41,22 @@
         const Product = {
             template: `<div>
                             <h1>Product: {{this.$route.params.product_id}}</h1>
-                            <router-view></router-view>
+
+                            <div style="width: 50%; background-color: white;">
+                                <router-view></router-view>
+                            </div>
                        </div>`
         }
 
         const Info = {
-            template: `<p>Info about {{this.$route.params.product_id}}</p>`
+            template: `<p>Info about {{this.$route.params.product_id}}</p>
+            <router-link to="/product/someproduct/accessories">Go to accessories</router-link>
+            `
         }
 
-        const Access = {
-            template: `<p>Accessories to {{this.$route.params.product_id}}</p>`
+        const Accessories = {
+            template: `<p>Accessories to {{this.$route.params.product_id}}</p>
+            <router-link to="/product/someproduct/info">Go to info</router-link>`
         }
 
         const router = VueRouter.createRouter({
@@ -66,7 +76,7 @@
                         },
                         {
                             path: 'accessories',
-                            component: Access
+                            component: Accessories
                         }
                     ]
                 }]

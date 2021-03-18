@@ -28,7 +28,9 @@
         crossorigin="anonymous"></script>
     <script>
         const Home = { template: '<p>my home page</p>' }
-        const Product = { template: '<p>{{this.$route.params.productId}}</p>' }
+        const Product = { 
+            template: '<p>You are viewing: {{this.$route.params.productId}}</p>' 
+        }
 
         const router = VueRouter.createRouter({
             history: VueRouter.createWebHashHistory(),
