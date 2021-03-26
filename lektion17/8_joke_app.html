@@ -26,6 +26,8 @@
 <body>
     <h1>Amazing Joke App</h1>
     <div id="app">
+        <fav-count></fav-count>
+
         <joke-list class="joke"></joke-list>
 
         <favorite-jokes class="joke"></favorite-jokes>
@@ -105,7 +107,7 @@
 
         const favoriteJokes = {
             components: {
-                heart
+                heart,
             },
             computed: {
                 jokes() {
@@ -145,10 +147,25 @@
                         </div>`
         }
 
+        const favCount = {
+            computed: {
+                count() {
+                    let propCount = 0
+                    for (const prop in this.$store.state.favjokes) {
+                        console.log(prop)
+                        propCount++
+                    }
+                    return propCount
+                }
+            },
+            template: `<div>{{ count }}</div>`
+        }
+
         const app = {
             components: {
                 favoriteJokes,
-                jokeList
+                jokeList,
+                favCount,
             },
             methods: {
                 ...Vuex.mapActions(['updateJokes',

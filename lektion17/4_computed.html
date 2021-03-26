@@ -10,7 +10,10 @@
 
 <body>
     <div id="app">
-        {{count}}<br>
+        {{ count }}<br>
+        {{ count }}<br>
+        {{ countM() }}<br>
+        {{ countM() }}<br>
         <input type="button" value="increment" @click="increment">
         <input type="button" value="reset" @click="reset">
     </div>
@@ -56,11 +59,24 @@
                 },
                 reset() {
                     this.$store.dispatch('resetAction')
+                },
+                countM() {
+                    const cnt = this.$store.state.count
+                    let result = 22
+                    for (let i = 0; i < cnt; ++i) {
+                        result += i * Math.random()
+                    }
+                    return result
                 }
             },
             computed: {
                 count() {
-                    return this.$store.state.count
+                    const cnt = this.$store.state.count
+                    let result = 22
+                    for (let i = 0; i < cnt; ++i) {
+                        result += i * Math.random()
+                    }
+                    return result
                 }
             }
         }
