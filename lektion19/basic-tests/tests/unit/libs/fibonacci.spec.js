@@ -1,7 +1,7 @@
 import { expect } from "chai"
 import { fib } from "@/libs/fibonacci.js"
 
-describe("fibonacci", () => {
+describe("fibonacci.fib()", () => {
     it("handles the first fibonacci number properly", () => {
         const result = fib(1)
         expect(result).to.equal(1)

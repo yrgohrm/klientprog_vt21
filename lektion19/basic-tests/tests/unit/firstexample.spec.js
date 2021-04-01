@@ -1,4 +1,4 @@
-describe.only("simple example", () => {
+describe("simple example", () => {
     it("really does nothing", () => {
         // well, not a lot of fun here...
     })
